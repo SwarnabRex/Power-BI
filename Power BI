@@ -1,0 +1,89 @@
+
+## Question 1: What is Power BI and why is it used in businesses?
+
+**Definition:** Power BI is a cloud-based business analytics and data visualization platform developed by Microsoft. It connects to multiple data sources, transforms raw data into a structured model, and generates interactive reports and dashboards.
+
+**Business Use Cases:**
+* **Data Centralization:** It allows organizations to consolidate data from diverse, siloed systems (like Excel sheets, cloud services, and internal SQL databases) into a single workspace.
+* **Data-Driven Decision Making:** It provides real-time, interactive visuals that help business users track Key Performance Indicators (KPIs) and notice emerging trends quickly.
+* **Self-Service Analytics:** It offers an intuitive drag-and-drop interface, enabling non-technical stakeholders to build or modify their own reports without waiting for IT intervention.
+* **Secure Collaboration:** It provides structured enterprise security (like Row-Level Security) to publish and share reports safely across global business units.
+
+---
+
+## Question 2: Name and explain the three main components of Power BI.
+
+The Power BI ecosystem consists of three interconnected primary platforms:
+1. **Power BI Desktop:** A free companion application installed on a local Windows machine. It is the primary tool used by data analysts to ingest, clean, model, and visually design reports.
+2. **Power BI Service:** A cloud-based Software-as-a-Service (SaaS) web portal. Once reports are authored locally, they are published here to allow team collaboration, dashboard creation, app distribution, and scheduled data refreshes.
+3. **Power BI Mobile:** Native mobile applications built for iOS, Android, and Windows devices. They are optimized for on-the-go corporate users to securely access, monitor, and interact with live organizational dashboards.
+
+---
+
+## Question 3: Explain the Power BI workflow.
+
+The standard development and consumption cycle in Power BI follows a specific sequence:
+1. **Step 1 (Extract):** Connect to data files, databases, or cloud services from Power BI Desktop.
+2. **Step 2 (Transform):** Use the Power Query Editor to shape, clean, filter, and structure the data into optimized tables.
+3. **Step 3 (Model):** Define relationship schemas between tables and build custom business calculations using DAX (Data Analysis Expressions).
+4. **Step 4 (Visualize):** Create interactive reports by dragging fields onto visual canvases (charts, matrices, maps).
+5. **Step 5 (Publish):** Upload the completed report (`.pbix` file) from the Desktop application to the cloud-based Power BI Service.
+6. **Step 6 (Share & Consume):** Pin report visuals onto dashboards, configure security access, and share them with stakeholders via browsers or mobile apps.
+
+---
+
+## Question 4: List any four data cleaning tasks that can be performed in Power Query.
+
+1. **Removing Duplicates and Blank Rows:** Cleans up redundant records and strips completely empty rows to ensure database integrity.
+2. **Changing Data Types:** Forces columns into explicit data formats (e.g., converting a numeric text string into a whole number or currency data type).
+3. **Replacing Values / Error Handling:** Finds specific errors, text strings, or `null` entries and swaps them with predefined values (like replacing `null` with `0`).
+4. **Splitting Columns:** Breaks down a single compound text field into multiple individual columns based on a specific delimiter (such as a space, comma, or custom character).
+
+---
+
+## Question 5: Write step by step instructions to load the above dataset.
+
+*(Assuming the **Real_Estate Dataset** is stored as a local file, such as an Excel workbook or a CSV file)*:
+1. Launch **Power BI Desktop** on your computer.
+2. On the top ribbon interface, navigate to the **Home** tab and click the **Get Data** icon located in the Data section.
+3. Choose the appropriate file connector format from the dropdown menu (e.g., select **Excel workbook** or **Text/CSV**) and click **Connect**.
+4. In the file explorer window, navigate to the local directory where your **Real_Estate Dataset** is stored, select the file, and click **Open**.
+5. A **Navigator** dialog box will appear displaying a preview. Mark the checkbox next to the specific sheet or data table name you intend to load.
+6. Click **Transform Data** if the dataset requires structural cleaning in Power Query, or click **Load** to import the dataset directly into your data model.
+
+---
+
+## Question 6: Define Data View, Report View, and Model View. Explain the purpose of each view.
+
+* **Report View (Definition):** The primary development canvas where visual elements are built.
+* **Report View (Purpose):** To configure layouts, format charts, apply slicers, and design multi-page interactive reports for end-users.
+* **Data View (Definition):** A full tabular grid view that displays the underlying rows and columns of your tables.
+* **Data View (Purpose):** To inspect the data post-transformation, review data formatting, and evaluate custom calculated columns or measures written in DAX.
+* **Model View (Definition):** A visual diagrammatic layout showing the schema relationship mapping of all tables in the dataset.
+* **Model View (Purpose):** To establish, modify, and optimize connections, cardinality (e.g., one-to-many), and cross-filtering directionality between disparate tables.
+
+---
+
+## Question 7: Discuss the different data sources that Power BI supports.
+
+Power BI provides native connectivity to hundreds of data structures, which can be categorized into:
+* **File Formats:** Flattened data architectures including Excel Workbooks (`.xlsx`), Text/CSV files, XML trees, JSON files, or entire folders of files.
+* **Relational Databases:** Enterprise database servers such as Microsoft SQL Server, Oracle, MySQL, PostgreSQL, and IBM DB2.
+* **Cloud & Data Warehouses:** Modern cloud platforms including Azure SQL Database, Microsoft Fabric, Snowflake, Google BigQuery, and Amazon Redshift.
+* **Online & SaaS Services:** Third-party web applications like Salesforce, Google Analytics, SharePoint Lists, Dynamics 365, and Adobe Analytics.
+* **Web & Other Sources:** External URLs (to scrape HTML data tables straight from a web page), OData feeds, Active Directory, and custom ODBC/OLEDB connection strings.
+
+---
+
+## Question 8: Split Owner Name to create two new columns as First Name and Last Name.
+
+1. Open your data model inside the **Power Query Editor** (click *Transform Data* from the Home ribbon).
+2. Click on the header of the column containing the name data to highlight the **Owner Name** column.
+3. Right-click the column header (or go to the **Home** tab in the top ribbon) and select **Split Column** → **By Delimiter**.
+4. In the configuration window that opens, select **Space** from the dropdown options as your delimiter.
+5. Under the *Split at* options, select **Each occurrence of the delimiter** and click **OK**. The column will split into two new columns, automatically named `Owner Name.1` and `Owner Name.2`.
+6. Double-click the header of `Owner Name.1` and type **First Name**, then press Enter.
+7. Double-click the header of `Owner Name.2` and type **Last Name**, then press Enter.
+8. Click the **Close & Apply** button on the far left of the Home tab to load the split columns into your report model.
+
+```
